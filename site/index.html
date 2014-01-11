@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+	<meta charset=utf-8>
+	<title>Your Elected Representatives In The News</title> 
+	<link href="http://fonts.googleapis.com/css?family=Josefin+Sans:400,400italic|Montserrat:400,700" rel="stylesheet" type="text/css">
+	<link href="styles/main.css" media="all" rel="stylesheet" type="text/css" />
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="http://ajax.aspnetcdn.com/ajax/knockout/knockout-2.2.1.js"></script>
+	<script src="scripts/repsinthenews-api.js"></script>
+	<script src="scripts/repsinthenews-viewmodel.js"></script>
+	<script src="scripts/repsinthenews-processing.js"></script>
+</head>
+<body>
+	<header>
+		<h1>Your Elected Representatives In The News</h1>
+		<h2>See the latest news on your elected representatives</h2>
+	</header>
+	<section id="adressForm">
+		<label for="address">Enter your address</label>
+		<input type="text" maxlength="200" name="address" id="address" data-bind="value: address" />
+		<button id="addressButton" data-bind="click: getRepsByAddress,visible: isSearching() === false">Go!</button>
+		<span id="searching" data-bind="visible: isSearching">Searching...</span>
+	</section>
+	<section id="results">
+		<h3 data-bind="text: getRepsMessage"></h3>
+		<pre data-bind="html: rawResults"></pre>
+	</section>
+	<footer> 
+		Written by <a href="http://www.sidesinger.com" target="_blank">Andrew Sidesinger</a> using public APIs by <a href="http://www.google.com" target="_blank">Google</a> and the <a href="https://votinginfoproject.org/" target="_blank">Voting Information Project</a>
+	</footer>
+
+	<script>
+		$(RepsInTheNews.init);
+	</script>
+</body>
+</html>
