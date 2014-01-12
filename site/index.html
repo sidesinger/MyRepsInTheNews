@@ -59,6 +59,11 @@
 				<h3 data-bind="text: getNewsMessage"></h3>
 				<div class="waitPanel" data-bind="visible: isGettingNews">Getting the news for this rep...</div>
 				<pre class="content" data-bind="text: ko.toJSON(news, null, 2)"></pre>
+				<footer>
+					News feed provided by Google News.  
+					Search terms used <span data-bind="text: searchTerms"></span>.
+					<a target="_blank" data-bind="attr { href: feedUrl }">View this feed at Google News</a>
+				</footer>
 			</section>
 		<!-- /ko -->
 	</section>
