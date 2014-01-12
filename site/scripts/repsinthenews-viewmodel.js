@@ -8,12 +8,22 @@
 		ko.mapping.fromJS(data, mapping, self);
 
 		self.news = ko.observable('');
+		self.getNewsMessage = ko.observable('');
 		self.isGettingNews = ko.observable(false);
 		self.getNews = function() {
-			self.isFetchingNews(true);
-			self.api.getNewsForRep(self.name,self.division,function(isSuccess,message,data){
-				//todo
-			});
+			// var url = self.api.getNewsForRepUrl(self.name(),self.division());
+			// self.news(url);
+			if (self.news() === '') {
+				self.isGettingNews(true);
+				self.api.getNewsForRep2(self.name(),self.division(),function(isSuccess,message,data){
+					if (isSuccess === true) {
+						self.news(data);
+					} else {
+						self.getNewsMessage(message);
+					}
+					self.isGettingNews(false);
+				});
+			}
 		};
 	};
 
@@ -46,5 +56,13 @@
 			};
 			ko.mapping.fromJS(data, mapping, self.reps);
 		};
+		self.hasSelectedRep = ko.observable(false);
+		self.selectedRep = ko.observable();
+		self.selectRep = function(rep) {
+			rep.getNews();
+			self.selectedRep(rep);
+			self.hasSelectedRep(true);
+		};
+
 	}; 
 }(jQuery, ko, window.RepsInTheNews = window.RepsInTheNews || {}));

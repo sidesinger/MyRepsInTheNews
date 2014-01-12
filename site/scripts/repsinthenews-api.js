@@ -40,16 +40,6 @@
 								reps.push(official);
 							});
 						});
-						
-						// for(var nextOfficeId in nextDivision.officeIds) {
-						// 	var nextOffice = data.offices['O'+nextOfficeId];
-						// 	for(var nextPersonId in nextOffice.officialIds) {
-						// 		var nextPerson = data.officials['P'+nextPersonId];
-						// 		nextPerson.office = nextOffice.name;
-						// 		nextPerson.division = nextDivision.name;
-						// 		reps.push(matchedPerson);
-						// 	}
-						// }
 					}
 					return { 
 						isSuccess: true, 
@@ -63,24 +53,49 @@
 			}
 		};
 
+		self.getNewsForRep2 = function(repName, repLocationName, callback) {
+			var feedUrl = self.getNewsForRepUrl(repName,repLocationName);
+			var feed = new google.feeds.Feed(feedUrl);
+			feed.setResultFormat(google.feeds.Feed.JSON_FORMAT);
+			feed.load(function(result){
+				if (result.error) {
+					if (callback && typeof(callback) === "function") {  
+						callback(false, "Error performing getting the news.  Please try again.");  
+					}
+				} else {
+					if (callback && typeof(callback) === "function") {  
+						callback(true, "", result.feed);  
+					}
+				}
+			});
+		};
+
+		self.getNewsForRepUrl = function(repName,repLocationName) {
+			var encodedRepName = encodeURI(repName);
+			var encodedLocationName = encodeURI(repLocationName|| "");
+			var repNewsUrl = self.newsUrl.replace("{repName}",encodedRepName).replace("{repLocationName}",encodedLocationName);
+			return repNewsUrl;
+		};
+
 		self.getNewsForRep = function(repName,repLocationName,callback) {
 			var encodedRepName = encodeURI(repName);
 			var encodedLocationName = encodeURI(repLocationName|| "");
 			var repNewsUrl = self.newsUrl.replace("{repName}",encodedRepName).replace("{repLocationName}",encodedLocationName);
-			var request = $.get({
+			var request = $.ajax({
+				type: "GET",
+				async: true,
 				url: repNewsUrl,
-				dataType: "xml"
+				dataType:'xml',
+				jsonp:'jsonp'
+			}).success(function(data, message) {
+				if (callback && typeof(callback) === "function") {  
+					callback(true,message,data);  
+				}
+			}).fail(function(jqXHR, textStatus) {
+				if (callback && typeof(callback) === "function") {  
+					callback(false, "Error performing the search.  Please try again.");  
+				} 
 			});
-			request.success = function(data, message) {
-				if (callback && typeof(callback) === "function") {  
-					callback(true,message);  
-				}
-			};
-			request.failure = function(jqXHR, textStatus) {
-				if (callback && typeof(callback) === "function") {  
-					callback(true,message);  
-				}
-			};
 		};
 	};
 })(jQuery, window.RepsInTheNews = window.RepsInTheNews || {});
