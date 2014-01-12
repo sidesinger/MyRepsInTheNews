@@ -1,0 +1,366 @@
+{
+ "kind": "civicinfo#representativeInfoResponse",
+ "status": "success",
+ "normalizedInput": {
+  "line1": "1800 pennsylvania ave nw",
+  "city": "washington",
+  "state": "DC",
+  "zip": "20006"
+ },
+ "divisions": {
+  "ocd-division/country:us/district:dc": {
+   "name": "District of Columbia",
+   "scope": "statewide",
+   "officeIds": [
+    "O0",
+    "O1",
+    "O2"
+   ]
+  },
+  "ocd-division/country:us": {
+   "name": "United States",
+   "scope": "national",
+   "officeIds": [
+    "O3",
+    "O4"
+   ]
+  }
+ },
+ "offices": {
+  "O0": {
+   "name": "Mayor",
+   "level": "other",
+   "officialIds": [
+    "P0"
+   ]
+  },
+  "O1": {
+   "name": "County Council, District At-Large",
+   "level": "other",
+   "officialIds": [
+    "P1",
+    "P2",
+    "P3",
+    "P4",
+    "P5"
+   ]
+  },
+  "O2": {
+   "name": "United States House of Representatives DC",
+   "level": "federal",
+   "officialIds": [
+    "P6"
+   ]
+  },
+  "O3": {
+   "name": "President",
+   "level": "federal",
+   "officialIds": [
+    "P7"
+   ]
+  },
+  "O4": {
+   "name": "Vice President",
+   "level": "federal",
+   "officialIds": [
+    "P8"
+   ]
+  }
+ },
+ "officials": {
+  "P0": {
+   "name": "Vincent C. Gray",
+   "address": [
+    {
+     "line1": "1350 pennsylvania avenue nw",
+     "city": "washington",
+     "state": "DC",
+     "zip": "20004"
+    }
+   ],
+   "party": "Democratic",
+   "phones": [
+    "(202) 727-6300"
+   ],
+   "urls": [
+    "http://mayor.dc.gov/"
+   ],
+   "photoUrl": "http://mayor.dc.gov/sites/default/files/styles/medium/public/dc/sites/mayor/page_content/images/MayorGray_0.jpg?itok=NPokRCVT",
+   "emails": [
+    "eom@dc.gov"
+   ],
+   "channels": [
+    {
+     "type": "Facebook",
+     "id": "grayformayor"
+    },
+    {
+     "type": "YouTube",
+     "id": "dcmayorsoffice"
+    },
+    {
+     "type": "Twitter",
+     "id": "mayorvincegray"
+    }
+   ]
+  },
+  "P1": {
+   "name": "Phil Mendelson",
+   "address": [
+    {
+     "line1": "1350 pennsylvania avenue nw",
+     "city": "washington",
+     "state": "DC",
+     "zip": "20004"
+    }
+   ],
+   "party": "Democratic",
+   "phones": [
+    "(202) 724-8032"
+   ],
+   "urls": [
+    "http://dcclims1.dccouncil.us/mendelson/"
+   ],
+   "photoUrl": "http://dccouncil.us/images/made/files/user_uploads/homepage_feature_graph/phil_140_177_c1.jpg",
+   "emails": [
+    "pmendelson@dccouncil.us"
+   ],
+   "channels": [
+    {
+     "type": "Facebook",
+     "id": "116515368396887"
+    }
+   ]
+  },
+  "P2": {
+   "name": "David Catania",
+   "address": [
+    {
+     "line1": "1350 pennsylvania avenue nw",
+     "city": "washington",
+     "state": "DC",
+     "zip": "20004"
+    }
+   ],
+   "party": "Independent",
+   "phones": [
+    "(202) 724-7772"
+   ],
+   "urls": [
+    "http://www.davidcatania.com/"
+   ],
+   "photoUrl": "http://dccouncil.us/files/user_uploads/member_photos/catania.jpg",
+   "emails": [
+    "dcatania@dccouncil.us"
+   ],
+   "channels": [
+    {
+     "type": "Facebook",
+     "id": "170484446336295"
+    },
+    {
+     "type": "Twitter",
+     "id": "Catania_EdCmte"
+    }
+   ]
+  },
+  "P3": {
+   "name": "David Grosso",
+   "address": [
+    {
+     "line1": "1350 pennsylvania avenue nw",
+     "city": "washington",
+     "state": "DC",
+     "zip": "20004"
+    }
+   ],
+   "party": "Independent",
+   "phones": [
+    "(202) 724-8105"
+   ],
+   "urls": [
+    "http://www.dccouncil.washington.dc.us/council/david-grosso"
+   ],
+   "photoUrl": "http://dccouncil.us/files/user_uploads/member_photos/david_grosso_color__small.jpg",
+   "emails": [
+    "dgrosso@dccouncil.us"
+   ],
+   "channels": [
+    {
+     "type": "Twitter",
+     "id": "GrossoAtLarge"
+    }
+   ]
+  },
+  "P4": {
+   "name": "Anita Bonds",
+   "address": [
+    {
+     "line1": "1350 pennsylvania avenue nw",
+     "city": "washington",
+     "state": "DC",
+     "zip": "20004"
+    }
+   ],
+   "party": "Democratic",
+   "phones": [
+    "(202) 724-8064"
+   ],
+   "urls": [
+    "http://www.dccouncil.washington.dc.us/council/anita-bonds"
+   ],
+   "photoUrl": "http://dccouncil.us/images/made/files/user_uploads/member_photos/Anita_140_139_c1.jpg",
+   "emails": [
+    "abonds@dccouncil.us"
+   ],
+   "channels": [
+    {
+     "type": "Twitter",
+     "id": "VoteAnitaBonds"
+    },
+    {
+     "type": "Facebook",
+     "id": "voteanitabonds"
+    }
+   ]
+  },
+  "P5": {
+   "name": "Vincent Orange",
+   "address": [
+    {
+     "line1": "1350 pennsylvania avenue nw",
+     "city": "washington",
+     "state": "DC",
+     "zip": "20004"
+    }
+   ],
+   "party": "Democratic",
+   "phones": [
+    "(202) 724-8174"
+   ],
+   "urls": [
+    "http://www.dccouncil.washington.dc.us/council/vincent-orange"
+   ],
+   "photoUrl": "http://dccouncil.us/files/user_uploads/member_photos/orange.jpg",
+   "emails": [
+    "vorange@dccouncil.us"
+   ],
+   "channels": [
+    {
+     "type": "Facebook",
+     "id": "116372358403443"
+    },
+    {
+     "type": "Twitter",
+     "id": "VincentOrangeDC"
+    }
+   ]
+  },
+  "P6": {
+   "name": "Eleanor Holmes Norton",
+   "address": [
+    {
+     "line1": "2136 rayburn house office building",
+     "city": "washington",
+     "state": "DC",
+     "zip": "20515"
+    }
+   ],
+   "party": "Democratic",
+   "phones": [
+    "(202) 225-8050"
+   ],
+   "urls": [
+    "http://www.norton.house.gov/"
+   ],
+   "photoUrl": "http://norton.house.gov/sites/norton.house.gov/files/styles/congress_image_thumbnail/public/wysiwyg_uploaded/Official.jpg?itok=PayIGvey",
+   "channels": [
+    {
+     "type": "Facebook",
+     "id": "CongresswomanNorton"
+    },
+    {
+     "type": "Twitter",
+     "id": "eleanornorton"
+    },
+    {
+     "type": "YouTube",
+     "id": "EleanorHNorton"
+    }
+   ]
+  },
+  "P7": {
+   "name": "Barack Hussein Obama II",
+   "address": [
+    {
+     "line1": "The White House",
+     "line2": "1600 Pennsylvania Avenue NW",
+     "line3": "",
+     "city": "Washington",
+     "state": "DC",
+     "zip": "20500"
+    }
+   ],
+   "party": "Democrat",
+   "phones": [
+    "(202) 456-1111",
+    "(202) 456-1414"
+   ],
+   "urls": [
+    "http://www.whitehouse.gov/administration/president_obama/",
+    "http://www.barackobama.com/index.php"
+   ],
+   "photoUrl": "http://www.whitehouse.gov/sites/default/files/imagecache/admin_official_lowres/administration-official/ao_image/president_official_portrait_hires.jpg",
+   "channels": [
+    {
+     "type": "Facebook",
+     "id": "barackobama"
+    },
+    {
+     "type": "GooglePlus",
+     "id": "110031535020051778989"
+    },
+    {
+     "type": "Twitter",
+     "id": "barackobama"
+    },
+    {
+     "type": "YouTube",
+     "id": "barackobama"
+    }
+   ]
+  },
+  "P8": {
+   "name": "Joseph (Joe) Robinette Biden Jr.",
+   "address": [
+    {
+     "line1": "The White House",
+     "line2": "1600 Pennsylvania Avenue NW",
+     "line3": "",
+     "city": "Washington",
+     "state": "DC",
+     "zip": "20500"
+    }
+   ],
+   "party": "Democrat",
+   "urls": [
+    "http://www.whitehouse.gov/administration/vice-president-biden"
+   ],
+   "photoUrl": "http://www.whitehouse.gov/sites/default/files/imagecache/admin_official_lowres/administration-official/ao_image/vp_portrait.jpeg",
+   "channels": [
+    {
+     "type": "Facebook",
+     "id": "joebiden"
+    },
+    {
+     "type": "Twitter",
+     "id": "JoeBiden"
+    },
+    {
+     "type": "Twitter",
+     "id": "VP"
+    }
+   ]
+  }
+ }
+}

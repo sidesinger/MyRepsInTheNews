@@ -21,7 +21,22 @@ time, mark, audio, video {
 
 body {
     line-height:1;
-    font-family: 'Josefin Sans', 's'
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 18px;
+}
+
+h1,h2,h3 {
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 700;
+}
+h1 {
+	font-size: 2.2em;
+}
+h2 {
+	font-size: 1.7em;
+}
+h3 {
+	font-size: 1.4em;
 }
 
 article,aside,details,figcaption,figure,
@@ -81,7 +96,6 @@ table {
     border-spacing:0;
 }
 
-/* change border colour to suit your needs */
 hr {
     display:block;
     height:1px;
@@ -93,4 +107,21 @@ hr {
 
 input, select {
     vertical-align:middle;
+}
+
+#results {
+	#repsList {
+		li {
+			img {
+				max-height: 100px;
+				max-width: 100px;
+			}
+			a {
+				font-size: 1.2em;
+			}
+			.office {
+				font-size: 0.9em;
+			}
+		}
+	}
 }

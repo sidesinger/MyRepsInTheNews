@@ -28,10 +28,33 @@
 		self.parseGetRepsResult = function(data) {
 			switch (data.status) {
 				case "success":
+					var reps = [];
+					for(var nextDivisionProp in data.divisions) {
+						var division = data.divisions[nextDivisionProp];
+						$.each(division.officeIds, function(officeIndex, officeId) {
+							var office = data.offices[officeId];
+							$.each(office.officialIds, function(officalIndex, officialId) {
+								var official = data.officials[officialId];
+								official.office = office.name;
+								official.division = division.name;
+								reps.push(official);
+							});
+						});
+						
+						// for(var nextOfficeId in nextDivision.officeIds) {
+						// 	var nextOffice = data.offices['O'+nextOfficeId];
+						// 	for(var nextPersonId in nextOffice.officialIds) {
+						// 		var nextPerson = data.officials['P'+nextPersonId];
+						// 		nextPerson.office = nextOffice.name;
+						// 		nextPerson.division = nextDivision.name;
+						// 		reps.push(matchedPerson);
+						// 	}
+						// }
+					}
 					return { 
 						isSuccess: true, 
 						message: "Found your address, here are your representatives.",
-						data: { officials: data.officials, offices: data.offices}
+						data: reps
 					};
 				case "addressUnparseable":
 					return { isSuccess: false, message:"Couldn't find that address, make sure it's correct."};

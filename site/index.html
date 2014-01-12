@@ -7,6 +7,7 @@
 	<link href="styles/main.css" media="all" rel="stylesheet" type="text/css" />
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 	<script src="http://ajax.aspnetcdn.com/ajax/knockout/knockout-2.2.1.js"></script>
+	<script src="scripts/knockout.mapping.2.4.1.js"></script>
 	<script src="scripts/repsinthenews-api.js"></script>
 	<script src="scripts/repsinthenews-viewmodel.js"></script>
 	<script src="scripts/repsinthenews-processing.js"></script>
@@ -24,7 +25,35 @@
 	</section>
 	<section id="results">
 		<h3 data-bind="text: getRepsMessage"></h3>
-		<pre data-bind="html: rawResults"></pre>
+		<ul id="repsList" data-bind="foreach: reps">
+			<li>
+				<!-- ko if: photoUrl -->
+				<img data-bind="attr: { src: photoUrl, alt: name }" />
+				<!-- /ko -->
+				<a data-bind="text: name, click: getNews" href="#"></a>
+				<div class="office" data-bind="text: office"></div>
+			</li>
+		</ul>
+	    <pre data-bind="text: ko.toJSON(rawResults, null, 2)"></pre>
+	</section>
+	<section id="selectedRep" data-bind="with: selectedRep">
+		<img data-bind="attr: { src: photoUrl, alt: name }" />
+		<div class="name" data-bind="text: name"></div>
+		<div class="office" data-bind="text: office"></div>
+		<div class="division" data-bind="text: division"></div>
+		<nav>
+			<ul>
+				<!-- ko foreach: urls -->
+					<li><a data-bind="text: 'Rep Homepage', attr: { href: $data }, class: 'general'"></a></li>
+				<!-- /ko -->
+				<!-- ko foreach: channels -->
+					<li data-bind="template: { name: type+'RepLinkTemplate', data: id"></li>
+				<!-- /ko -->
+			</ul>
+		</nav>
+		<section class="news" data-bind="html: news">
+			
+		</section>
 	</section>
 	<footer> 
 		Written by <a href="http://www.sidesinger.com" target="_blank">Andrew Sidesinger</a> using public APIs by <a href="http://www.google.com" target="_blank">Google</a> and the <a href="https://votinginfoproject.org/" target="_blank">Voting Information Project</a>
@@ -33,5 +62,18 @@
 	<script>
 		$(RepsInTheNews.init);
 	</script>
+
+	<script type="text/html" id="FacebookRepLinkTemplate">
+		<a class="facebookLink" data-bind="attr: { href:'https://www.facebook.com/'+id, target: '_blank' }"></a>
+	</script>
+	<script type="text/html" id="GogglePlusRepLinkTemplate">
+		<a class="googlePlusLink" data-bind="attr: { href:'https://plus.google.com/'+id, target: '_blank' }"></a>
+	</script>
+	<script type="text/html" id="TwitterRepLinkTemplate">
+		<a class="twitterLink" data-bind="attr: { href:'http://www.twitter.com/'+id, target: '_blank' }"></a>
+	</script>
+	<script type="text/html" id="YouTubeRepLinkTemplate">
+		<a class="youtubeLink" data-bind="attr: { href:'http://www.youtube.com/user/'+id, target: '_blank' }"></a>
+	</script>			
 </body>
 </html>

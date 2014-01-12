@@ -6,7 +6,7 @@
 	var api = new RepsInTheNews.Api(repApiUrl,newsUrl);
 
 	RepsInTheNews.init = function() {
-		self.viewModel = new RepsInTheNews.ViewModel(api);
-		ko.applyBindings(self.viewModel);
+		var viewModel = new RepsInTheNews.ViewModel(api);
+		RepsInTheNews.koModel = ko.applyBindings(viewModel);
 	};
 }(jQuery, ko, window.RepsInTheNews = window.RepsInTheNews || {}));
