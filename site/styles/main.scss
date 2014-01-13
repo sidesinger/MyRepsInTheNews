@@ -1,3 +1,6 @@
+$regFont: 'Exo 2', sans-serif;
+$headingFont: 'Montserrat', sans-serif;
+
 html, body, div, span, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 abbr, address, cite, code,
@@ -21,12 +24,28 @@ time, mark, audio, video {
 
 body {
     line-height:1;
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: $regFont;
     font-size: 18px;
+    // background-color: #333;
+}
+body>header,body>section,body>article,body>footer {
+	background-color: #fff;
+	width: 900px;
+	margin: 0 auto;
+	padding: 4px 8px;
+}
+body>footer {
+	border-top: 10px solid #333;		
+	padding-top: 10px;
+	padding-bottom: 10px;
+	clear:both;
+}
+body>article {
+	min-height: 400px;
 }
 
 h1,h2,h3 {
-	font-family: 'Montserrat', sans-serif;
+	font-family: $headingFont;
 	font-weight: 700;
 }
 h1 {
@@ -109,13 +128,54 @@ input, select {
     vertical-align:middle;
 }
 
+.repPhoto {
+	height: 100px;
+	width: 100px;
+	background-color: #333;
+	-webkit-border-radius: 5em;
+	-moz-border-radius: 5em;
+	border-radius: 5em;
+	box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+	-webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+	-moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+	overflow: hidden;
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+
+	img {
+		max-height: 100px;
+		max-width: 100px;
+	}
+}
+
+#addressForm {
+	font-size: 1.4em;
+	label:after {
+		content: ": ";
+	}
+	input {
+		font-family: $regFont;
+		font-size: 1em;
+		width: 600px;
+	}
+	button {
+		font-family: $headingFont;
+		font-size: 1em;
+	}
+}
+
 #results {
+	float: left;
+	width: 250px;
+
 	#repsList {
+		.repPhoto {
+			display:none;
+		}
 		li {
-			img {
-				max-height: 100px;
-				max-width: 100px;
-			}
+			display: block;
+			
 			a {
 				font-size: 1.2em;
 			}
@@ -125,3 +185,32 @@ input, select {
 		}
 	}
 }
+
+#selectedRep {
+	float:left;
+	width: 600px;
+	
+	#profile {
+		.repPhoto {
+			float:left;
+		}
+	}
+	#profile:after {
+		clear:both;
+	}
+	#news {
+
+	}
+	footer {
+		text-size: 0.7em;
+		text-transform: uppercase;
+	}
+}
+
+.facebookLink
+
+.googlePlusLink
+
+.twitterLink
+
+.youtubeLink

@@ -20,11 +20,26 @@ time, mark, audio, video {
 
 body {
   line-height: 1;
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: "Exo 2", sans-serif;
   font-size: 18px; }
 
+body > header, body > section, body > article, body > footer {
+  background-color: #fff;
+  width: 900px;
+  margin: 0 auto;
+  padding: 4px 8px; }
+
+body > footer {
+  border-top: 10px solid #333;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  clear: both; }
+
+body > article {
+  min-height: 400px; }
+
 h1, h2, h3 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 700; }
 
 h1 {
@@ -93,10 +108,55 @@ hr {
 input, select {
   vertical-align: middle; }
 
-#results #repsList li img {
-  max-height: 100px;
-  max-width: 100px; }
-#results #repsList li a {
-  font-size: 1.2em; }
-#results #repsList li .office {
-  font-size: 0.9em; }
+.repPhoto {
+  height: 100px;
+  width: 100px;
+  background-color: #333;
+  -webkit-border-radius: 5em;
+  -moz-border-radius: 5em;
+  border-radius: 5em;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
+  -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
+  -moz-box-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
+  overflow: hidden;
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center; }
+  .repPhoto img {
+    max-height: 100px;
+    max-width: 100px; }
+
+#addressForm {
+  font-size: 1.4em; }
+  #addressForm label:after {
+    content: ": "; }
+  #addressForm input {
+    font-family: "Exo 2", sans-serif;
+    font-size: 1em;
+    width: 600px; }
+  #addressForm button {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1em; }
+
+#results {
+  float: left;
+  width: 250px; }
+  #results #repsList .repPhoto {
+    display: none; }
+  #results #repsList li {
+    display: block; }
+    #results #repsList li a {
+      font-size: 1.2em; }
+    #results #repsList li .office {
+      font-size: 0.9em; }
+
+#selectedRep {
+  float: left;
+  width: 600px; }
+  #selectedRep #profile .repPhoto {
+    float: left; }
+  #selectedRep #profile:after {
+    clear: both; }
+  #selectedRep footer {
+    text-size: 0.7em;
+    text-transform: uppercase; }
