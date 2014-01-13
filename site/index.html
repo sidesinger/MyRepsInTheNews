@@ -58,11 +58,20 @@
 			<section id="news">
 				<h3 data-bind="text: getNewsMessage"></h3>
 				<div class="waitPanel" data-bind="visible: isGettingNews">Getting the news for this rep...</div>
-				<pre class="content" data-bind="text: ko.toJSON(news, null, 2)"></pre>
+				<div class="content" data-bind="foreach: news.entries">
+					<article>
+						<a target="_blank" data-bind="attr: { href: link }">
+							<div class="title" data-bind="text: title"></div>
+							<time data-bind="text: publishedDate"></time>
+							<div class="snippet" data-bind="text: contentSnippet"></div>
+						</a>
+						<div class="fullText" data-bind="text: content"></div>
+					</article>
+				</div>
 				<footer>
 					News feed provided by Google News.  
-					Search terms used <span data-bind="text: searchTerms"></span>.
-					<a target="_blank" data-bind="attr { href: feedUrl }">View this feed at Google News</a>
+					Search terms used '<span data-bind="text: name"></span>','<span data-bind="text: division"></span>'.
+					<a target="_blank" data-bind="attr { href: news().feedUrl }">View this feed at Google News</a>
 				</footer>
 			</section>
 		<!-- /ko -->
@@ -70,8 +79,6 @@
 	<footer> 
 		Written by <a href="http://www.sidesinger.com" target="_blank">Andrew Sidesinger</a> using public APIs by <a href="http://www.google.com" target="_blank">Google</a> and the <a href="https://votinginfoproject.org/" target="_blank">Voting Information Project</a>
 	</footer>
-
-	<pre data-bind="text: ko.toJSON(rawResults, null, 2)"></pre>
 
 	<script>
 		google.load("feeds", "1");

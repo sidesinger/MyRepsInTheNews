@@ -53,7 +53,7 @@
 			}
 		};
 
-		self.getNewsForRep2 = function(repName, repLocationName, callback) {
+		self.getNewsForRep = function(repName, repLocationName, callback) {
 			var feedUrl = self.getNewsForRepUrl(repName,repLocationName);
 			var feed = new google.feeds.Feed(feedUrl);
 			feed.setResultFormat(google.feeds.Feed.JSON_FORMAT);
@@ -75,27 +75,6 @@
 			var encodedLocationName = encodeURI(repLocationName|| "");
 			var repNewsUrl = self.newsUrl.replace("{repName}",encodedRepName).replace("{repLocationName}",encodedLocationName);
 			return repNewsUrl;
-		};
-
-		self.getNewsForRep = function(repName,repLocationName,callback) {
-			var encodedRepName = encodeURI(repName);
-			var encodedLocationName = encodeURI(repLocationName|| "");
-			var repNewsUrl = self.newsUrl.replace("{repName}",encodedRepName).replace("{repLocationName}",encodedLocationName);
-			var request = $.ajax({
-				type: "GET",
-				async: true,
-				url: repNewsUrl,
-				dataType:'xml',
-				jsonp:'jsonp'
-			}).success(function(data, message) {
-				if (callback && typeof(callback) === "function") {  
-					callback(true,message,data);  
-				}
-			}).fail(function(jqXHR, textStatus) {
-				if (callback && typeof(callback) === "function") {  
-					callback(false, "Error performing the search.  Please try again.");  
-				} 
-			});
 		};
 	};
 })(jQuery, window.RepsInTheNews = window.RepsInTheNews || {});
