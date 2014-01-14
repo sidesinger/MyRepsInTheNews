@@ -33,7 +33,9 @@ body > footer {
   border-top: 10px solid #333;
   padding-top: 10px;
   padding-bottom: 10px;
-  clear: both; }
+  clear: both;
+  text-transform: uppercase;
+  margin-top: 35px; }
 
 body > article {
   min-height: 400px; }
@@ -148,15 +150,58 @@ input, select {
     #results #repsList li a {
       font-size: 1.2em; }
     #results #repsList li .office {
-      font-size: 0.9em; }
+      font-size: 0.9em;
+      font-style: italic; }
 
 #selectedRep {
   float: left;
   width: 600px; }
   #selectedRep #profile .repPhoto {
-    float: left; }
+    float: left;
+    margin-right: 10px; }
+  #selectedRep #profile .name {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: 1.5em; }
+  #selectedRep #profile .office {
+    padding: 4px 0;
+    font-style: italic; }
+  #selectedRep #profile .division {
+    padding: 4px 0;
+    font-style: italic; }
+  #selectedRep #profile nav li {
+    display: inline;
+    height: 36px;
+    width: 36px; }
   #selectedRep #profile:after {
     clear: both; }
+  #selectedRep #news {
+    clear: both; }
   #selectedRep footer {
-    text-size: 0.7em;
-    text-transform: uppercase; }
+    font-size: 0.5em;
+    text-transform: uppercase;
+    margin-top: 10px; }
+
+.iconLink, #selectedRep #profile nav li a {
+  text-indent: 100%;
+  background-repeat: no-repeat;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 36px;
+  height: 36px;
+  display: inline-block; }
+
+.homepageLink {
+  background-image: url("../images/AboutMe-36.png"); }
+
+.facebookLink {
+  background-image: url("../images/Facebook-36.png"); }
+
+.googlePlusLink {
+  background-image: url("../images/GooglePlus-36.png"); }
+
+.twitterLink {
+  background-image: url("../images/Twitter-36.png"); }
+
+.youtubeLink {
+  background-image: url("../images/YouTube_02-36.png"); }

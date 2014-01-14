@@ -39,6 +39,8 @@ body>footer {
 	padding-top: 10px;
 	padding-bottom: 10px;
 	clear:both;
+	text-transform: uppercase;
+	margin-top: 35px;
 }
 body>article {
 	min-height: 400px;
@@ -181,6 +183,7 @@ input, select {
 			}
 			.office {
 				font-size: 0.9em;
+				font-style: italic;
 			}
 		}
 	}
@@ -193,24 +196,71 @@ input, select {
 	#profile {
 		.repPhoto {
 			float:left;
+			margin-right: 10px;
+		}
+		.name {
+			font-family: $headingFont;
+			font-weight: 700;
+			font-size: 	1.5em;
+		}
+		.office {
+			padding: 4px 0;
+			font-style: italic;
+		}
+		.division {
+			padding: 4px 0;
+			font-style: italic;
+		}
+		nav {
+			li {
+				display:inline;
+				height: 36px;
+				width: 36px;
+				a {
+					@extend .iconLink;
+				}
+			}
 		}
 	}
 	#profile:after {
 		clear:both;
 	}
 	#news {
-
+		clear:both;
 	}
 	footer {
-		text-size: 0.7em;
+		font-size: 0.5em;
 		text-transform: uppercase;
+		margin-top: 10px;
 	}
 }
 
-.facebookLink
+.iconLink {
+	text-indent: 100%;
+	background-repeat: no-repeat;
+	white-space: nowrap;
+	overflow: hidden;
+	width: 36px;
+	height: 36px;
+	display: inline-block;
+}
 
-.googlePlusLink
+.homepageLink {
+	background-image: url('../images/AboutMe-36.png');
+}
 
-.twitterLink
+.facebookLink {
+	background-image: url('../images/Facebook-36.png');
+}
 
-.youtubeLink
+.googlePlusLink {
+	background-image: url('../images/GooglePlus-36.png');
+}
+
+.twitterLink {
+	background-image: url('../images/Twitter-36.png');
+}
+
+.youtubeLink {
+	background-image: url('../images/YouTube_02-36.png');
+}

@@ -26,6 +26,7 @@
 	</section>
 	<article>
 		<section id="results">
+			<h2 data-bind="visible: reps().length > 0">Your Reps</h2>
 			<h3 data-bind="text: getRepsMessage"></h3>
 			<ul id="repsList" data-bind="foreach: reps">
 				<li>
@@ -53,7 +54,7 @@
 					<nav>
 						<ul>
 							<!-- ko foreach: $data.urls -->
-								<li><a data-bind="text: 'Rep Homepage', attr: { href: $data }"></a></li>
+								<li><a data-bind="text: 'Rep Homepage', attr: { href: $data }" class="homepageLink"></a></li>
 							<!-- /ko -->
 							<!-- ko foreach: $data.channels -->
 								<li data-bind="template: { name: type()+'RepLinkTemplate', data: id }"></li>
