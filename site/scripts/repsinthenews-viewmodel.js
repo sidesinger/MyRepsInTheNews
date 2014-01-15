@@ -7,16 +7,16 @@
 		};
 		ko.mapping.fromJS(data, mapping, self);
 
-		self.news = ko.observable({});
+		self.news = ko.observable(new RepsInTheNews.News());
 		self.getNewsMessage = ko.observable('');
 		self.isGettingNews = ko.observable(false);
 		self.getNews = function() {
-			if (self.news().feedUrl === undefined) {
+			if (self.news().feedUrl() === "") {
 				self.isGettingNews(true);
 				self.api.getNewsForRep(self.name(),self.division(),function(isSuccess,message,newsData){
 					if (isSuccess === true) {
-						ko.mapping.fromJS(newsData, {}, self.news());
-						//self.news(data);
+						//ko.mapping.fromJS(newsData, {}, self.news);
+						self.news().setNews(newsData);
 					} else {
 						self.getNewsMessage(message);
 					}
@@ -24,6 +24,29 @@
 				});
 			}
 		};
+	};
+
+	RepsInTheNews.News = function() {
+		var self = this;
+		self.feedUrl = ko.observable('');
+		self.entries = ko.observableArray();
+
+		self.setNews = function(data) {
+			self.feedUrl = data.feedUrl;
+			self.entries.removeAll();
+			$.each(data.entries, function(entryIndex, entry) {
+				self.entries.push(new RepsInTheNews.NewsArticle(entry));
+			});
+		};
+	};
+
+	RepsInTheNews.NewsArticle = function(data) {
+		var self = this;
+		self.link = ko.observable(data.link);
+		self.title = ko.observable(data.title);
+		self.publishedDate = ko.observable(data.publishedDate);
+		self.contentSnippet = ko.observable(data.contentSnippet);
+		self.content = ko.observable(data.contentSnippet);
 	};
 
 	RepsInTheNews.ViewModel = function(api) {
@@ -56,8 +79,8 @@
 		self.hasSelectedRep = ko.observable(false);
 		self.selectedRep = ko.observable({});
 		self.selectRep = function(rep) {
-			rep.getNews();
 			self.selectedRep(rep);
+			rep.getNews();
 			self.hasSelectedRep(true);
 		};
 

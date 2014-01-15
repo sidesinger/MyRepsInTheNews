@@ -1,5 +1,6 @@
-$regFont: 'Exo 2', sans-serif;
-$headingFont: 'Montserrat', sans-serif;
+$regFont: 'Open Sans', sans-serif;
+$headingFont: 'Open Sans', sans-serif;
+$datBlue: #1E87FF;
 
 html, body, div, span, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -85,6 +86,13 @@ a {
     font-size:100%;
     vertical-align:baseline;
     background:transparent;
+    color: $datBlue;
+    text-decoration: none;
+}
+
+a:hover {
+	background-color: #ccc;
+	text-decoration: underline;
 }
 
 /* change colours to suit your needs */
@@ -159,7 +167,7 @@ input, select {
 	input {
 		font-family: $regFont;
 		font-size: 1em;
-		width: 600px;
+		width: 590px;
 	}
 	button {
 		font-family: $headingFont;
@@ -170,7 +178,7 @@ input, select {
 #results {
 	float: left;
 	width: 250px;
-
+	padding-right: 10px;
 	#repsList {
 		.repPhoto {
 			display:none;
@@ -227,6 +235,26 @@ input, select {
 	}
 	#news {
 		clear:both;
+		padding-top: 15px;
+		padding-bottom: 15px;
+
+		article {
+			padding-bottom: 10px;
+		}
+
+		.title {
+			font-size: 1.1em;
+		}
+		time {
+			font-size: 0.8em;
+			font-style: italic;
+		}
+		.snippet {
+			font-size: 0.9em;
+		}
+		.fullText {
+			display: none;
+		}
 	}
 	footer {
 		font-size: 0.5em;

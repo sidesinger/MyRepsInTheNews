@@ -3,7 +3,7 @@
 <head>
 	<meta charset=utf-8>
 	<title>Your Elected Representatives In The News</title> 
-	<link href="http://fonts.googleapis.com/css?family=Exo+2:300|Montserrat:400,700" rel="stylesheet" type="text/css">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400,800,300' rel='stylesheet' type='text/css'>
 	<link href="styles/main.css" media="all" rel="stylesheet" type="text/css" />
 	<script src="https://www.google.com/jsapi"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
@@ -40,49 +40,9 @@
 				</li>
 			</ul>
 		</section>
-		<section id="selectedRep" data-bind="if: hasSelectedRep">
-			<!-- ko with: selectedRep -->
-				<section id="profile">
-					<!-- ko if: $data.photoUrl -->
-						<div class="repPhoto">
-							<img data-bind="attr: { src: photoUrl, alt: name }" />
-						</div>
-					<!-- /ko -->
-					<div class="name" data-bind="text: name"></div>
-					<div class="office" data-bind="text: office"></div>
-					<div class="division" data-bind="text: division"></div>
-					<nav>
-						<ul>
-							<!-- ko foreach: $data.urls -->
-								<li><a data-bind="text: 'Rep Homepage', attr: { href: $data }" class="homepageLink"></a></li>
-							<!-- /ko -->
-							<!-- ko foreach: $data.channels -->
-								<li data-bind="template: { name: type()+'RepLinkTemplate', data: id }"></li>
-							<!-- /ko -->
-						</ul>
-					</nav>
-				</section>
-				<section id="news">
-					<h3 data-bind="text: getNewsMessage"></h3>
-					<div class="waitPanel" data-bind="visible: isGettingNews">Getting the news for this rep...</div>
-					<div class="content" data-bind="foreach: news.entries">
-						<article>
-							<a target="_blank" data-bind="attr: { href: link }">
-								<div class="title" data-bind="text: title"></div>
-								<time data-bind="text: publishedDate"></time>
-								<div class="snippet" data-bind="text: contentSnippet"></div>
-							</a>
-							<div class="fullText" data-bind="text: content"></div>
-						</article>
-					</div>
-					<footer>
-						News feed provided by Google News.<br>
-						Search terms used '<span data-bind="text: name"></span>','<span data-bind="text: division"></span>'.<br>
-						<a target="_blank" data-bind="attr: { href: news.feedUrl }">View this feed at Google News</a>
-					</footer>
-				</section>
-			<!-- /ko -->
-		</section>
+		<!-- ko if: hasSelectedRep -->
+			<section id="selectedRep" data-bind="template: { name: 'selectedRepTemplate', data: selectedRep }"></section>
+		<!-- /ko -->
 	</article>
 	
 	
@@ -93,6 +53,51 @@
 	<script>
 		google.load("feeds", "1");
 		$(RepsInTheNews.init);
+	</script>
+
+	<script type="text/html" id="selectedRepTemplate">
+		<section id="profile">
+			<!-- ko if: $data.photoUrl -->
+				<div class="repPhoto">
+					<img data-bind="attr: { src: photoUrl, alt: name }" />
+				</div>
+			<!-- /ko -->
+			<div class="name" data-bind="text: name"></div>
+			<div class="office" data-bind="text: office"></div>
+			<div class="division" data-bind="text: division"></div>
+			<nav>
+				<ul>
+					<!-- ko foreach: $data.urls -->
+						<li><a data-bind="text: 'Rep Homepage', attr: { href: $data }" class="homepageLink"></a></li>
+					<!-- /ko -->
+					<!-- ko foreach: $data.channels -->
+						<li data-bind="template: { name: type()+'RepLinkTemplate', data: id }"></li>
+					<!-- /ko -->
+				</ul>
+			</nav>
+		</section>
+		<section id="news">
+			<h3 data-bind="text: getNewsMessage"></h3>
+			<div class="waitPanel" data-bind="visible: isGettingNews">Getting the news for this rep...</div>
+			<div data-bind="template: { name: 'newsTemplate', data: news }"></div>
+			<footer>
+				News feed provided by Google News.<br>
+				Search terms used '<span data-bind="text: name"></span>','<span data-bind="text: division"></span>'.<br>
+				<a target="_blank" data-bind="attr: { href: news().feedUrl }">View this feed at Google News</a>
+			</footer>
+		</section>
+	</script>
+
+	<script type="text/html" id="newsTemplate">
+		<div class="content" data-bind="foreach: entries">
+			<article>
+				<a target="_blank" class="title" data-bind="attr: { href: link }, text: title">
+				</a>
+				<time data-bind="text: publishedDate"></time>
+				<div class="snippet" data-bind="text: contentSnippet"></div>
+				<div class="fullText" data-bind="text: content"></div>
+			</article>
+		</div>
 	</script>
 
 	<script type="text/html" id="FacebookRepLinkTemplate">

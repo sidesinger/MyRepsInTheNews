@@ -20,7 +20,7 @@ time, mark, audio, video {
 
 body {
   line-height: 1;
-  font-family: "Exo 2", sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 18px; }
 
 body > header, body > section, body > article, body > footer {
@@ -41,7 +41,7 @@ body > article {
   min-height: 400px; }
 
 h1, h2, h3 {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-weight: 700; }
 
 h1 {
@@ -73,7 +73,13 @@ a {
   padding: 0;
   font-size: 100%;
   vertical-align: baseline;
-  background: transparent; }
+  background: transparent;
+  color: #1e87ff;
+  text-decoration: none; }
+
+a:hover {
+  background-color: #ccc;
+  text-decoration: underline; }
 
 /* change colours to suit your needs */
 ins {
@@ -133,16 +139,17 @@ input, select {
   #addressForm label:after {
     content: ": "; }
   #addressForm input {
-    font-family: "Exo 2", sans-serif;
+    font-family: "Open Sans", sans-serif;
     font-size: 1em;
-    width: 600px; }
+    width: 590px; }
   #addressForm button {
-    font-family: "Montserrat", sans-serif;
+    font-family: "Open Sans", sans-serif;
     font-size: 1em; }
 
 #results {
   float: left;
-  width: 250px; }
+  width: 250px;
+  padding-right: 10px; }
   #results #repsList .repPhoto {
     display: none; }
   #results #repsList li {
@@ -160,7 +167,7 @@ input, select {
     float: left;
     margin-right: 10px; }
   #selectedRep #profile .name {
-    font-family: "Montserrat", sans-serif;
+    font-family: "Open Sans", sans-serif;
     font-weight: 700;
     font-size: 1.5em; }
   #selectedRep #profile .office {
@@ -176,7 +183,20 @@ input, select {
   #selectedRep #profile:after {
     clear: both; }
   #selectedRep #news {
-    clear: both; }
+    clear: both;
+    padding-top: 15px;
+    padding-bottom: 15px; }
+    #selectedRep #news article {
+      padding-bottom: 10px; }
+    #selectedRep #news .title {
+      font-size: 1.1em; }
+    #selectedRep #news time {
+      font-size: 0.8em;
+      font-style: italic; }
+    #selectedRep #news .snippet {
+      font-size: 0.9em; }
+    #selectedRep #news .fullText {
+      display: none; }
   #selectedRep footer {
     font-size: 0.5em;
     text-transform: uppercase;
