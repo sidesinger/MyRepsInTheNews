@@ -16,41 +16,45 @@
 		<h1>Your Elected Representatives In The News</h1>
 		<h2>See the latest news on your elected representatives</h2>
 	</header>
+
 	<section id="addressForm">
 		<label for="address">Enter your address</label>
 		<input type="text" maxlength="200" name="address" id="address" data-bind="value: address" autofocus />
 		<span class="submitter">
 			<button id="addressButton" type="button" data-bind="click: getRepsByAddress,visible: isSearching() === false">Go!</button>
 		</span>
-		
 	</section>
+
 	<article>
-	<span id="searching" data-bind="visible: isSearching">Searching...</span>
-		<section id="results">
-			<h2 data-bind="visible: reps().length > 0">Your Reps</h2>
-			<h3 data-bind="text: getRepsMessage"></h3>
+		<div id="searching" data-bind="visible: isSearching">Searching...</div>
+		<div id="getRepsMessage" data-bind="text: getRepsMessage, visible: getRepsMessage.length > 0"></div>
+		
+		<h2 data-bind="visible: reps().length > 0">Your Reps</h2>
+		
+		<div id="results">
 			<ul id="repsList" data-bind="foreach: reps">
-				<li>
+				<li data-bind="css: { active: isActive() }">
 					<!-- ko if: $data.photoUrl -->
 					<div class="repPhoto">
 						<img data-bind="attr: { src: photoUrl, alt: name }" />
 					</div>
 					<!-- /ko -->
-					<a data-bind="text: name, click: $parent.selectRep" href="#"></a>
-					<div class="office" data-bind="text: office"></div>
+					<a data-bind="click: $parent.selectRep" href="#">
+						<div class="name" data-bind="text: name"></div>
+						<div class="office" data-bind="text: office"></div>
+					</a>
 				</li>
 			</ul>
-		</section>
-		<!-- ko if: hasSelectedRep -->
-			<section id="selectedRep" data-bind="template: { name: 'selectedRepTemplate', data: selectedRep }"></section>
-		<!-- /ko -->
+
+			<!-- ko if: hasSelectedRep -->
+				<section id="selectedRep" data-bind="template: { name: 'selectedRepTemplate', data: selectedRep }"></section>
+			<!-- /ko -->
+		</div>
 	</article>
-	
 	
 	<footer> 
 		Written by <a href="http://www.sidesinger.com" target="_blank">Andrew Sidesinger</a> using public APIs by <a href="http://www.google.com" target="_blank">Google</a> and the <a href="https://votinginfoproject.org/" target="_blank">Voting Information Project</a>
 	</footer>
-
 
 	<script type="text/html" id="selectedRepTemplate">
 		<section id="profile">
@@ -74,8 +78,8 @@
 			</nav>
 		</section>
 		<section id="news">
-			<h3 data-bind="text: getNewsMessage"></h3>
-			<div class="waitPanel" data-bind="visible: isGettingNews">Getting the news for this rep...</div>
+			<div id="getNewsMessage" data-bind="text: getNewsMessage, visible: getNewsMessage.length > 0"></div>
+			<div id="gettingNews" data-bind="visible: isGettingNews">Getting the news for this rep...</div>
 			<div data-bind="template: { name: 'newsTemplate', data: news }"></div>
 			<footer>
 				News feed provided by Google News.<br>

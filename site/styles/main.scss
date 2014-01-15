@@ -2,42 +2,20 @@
 
 $regFont: 'Open Sans', sans-serif;
 $headingFont: 'Open Sans', sans-serif;
-$datBlue: #1E87FF;
-
-html, body, div, span, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-abbr, address, cite, code,
-del, dfn, em, img, ins, kbd, q, samp,
-small, strong, sub, sup, var,
-b, i,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section, summary,
-time, mark, audio, video {
-    margin:0;
-    padding:0;
-    border:0;
-    outline:0;
-    font-size:100%;
-    vertical-align:baseline;
-    background:transparent;
-}
-
+$datBlue: rgb(66, 139, 202);
 
 body {
-    line-height:1;
+	@extend .container;
     font-family: $regFont;
     font-size: 18px;
     // background-color: #333;
 }
-body>header,body>section,body>article,body>footer {
-	background-color: #fff;
-	width: 900px;
-	margin: 0 auto;
-	padding: 4px 8px;
-}
+// body>header,body>section,body>article,body>footer {
+// 	background-color: #fff;
+// 	width: 900px;
+// 	margin: 0 auto;
+// 	padding: 4px 8px;
+// }
 body>footer {
 	border-top: 10px solid #333;		
 	padding-top: 10px;
@@ -64,25 +42,6 @@ h3 {
 	font-size: 1.4em;
 }
 
-article,aside,details,figcaption,figure,
-footer,header,hgroup,menu,nav,section { 
-    display:block;
-}
-
-nav ul {
-    list-style:none;
-}
-
-blockquote, q {
-    quotes:none;
-}
-
-blockquote:before, blockquote:after,
-q:before, q:after {
-    content:'';
-    content:none;
-}
-
 a {
     margin:0;
     padding:0;
@@ -96,49 +55,6 @@ a {
 a:hover {
 	background-color: #ccc;
 	text-decoration: underline;
-}
-
-/* change colours to suit your needs */
-ins {
-    background-color:#ff9;
-    color:#000;
-    text-decoration:none;
-}
-
-/* change colours to suit your needs */
-mark {
-    background-color:#ff9;
-    color:#000; 
-    font-style:italic;
-    font-weight:bold;
-}
-
-del {
-    text-decoration: line-through;
-
-}
-
-abbr[title], dfn[title] {
-    border-bottom:1px dotted;
-    cursor:help;
-}
-
-table {
-    border-collapse:collapse;
-    border-spacing:0;
-}
-
-hr {
-    display:block;
-    height:1px;
-    border:0;   
-    border-top:1px solid #cccccc;
-    margin:1em 0;
-    padding:0;
-}
-
-input, select {
-    vertical-align:middle;
 }
 
 .repPhoto {
@@ -160,6 +76,15 @@ input, select {
 		max-height: 100px;
 		max-width: 100px;
 	}
+}
+
+#searching,#gettingNews {
+	@extend .alert;
+	@extend .alert-info;
+}
+#getRepsMessage, #getNewsMessage {
+	@extend .alert;
+	@extend .alert-danger;
 }
 
 #addressForm {
@@ -192,30 +117,37 @@ input, select {
 }
 
 #results {
-	float: left;
-	width: 250px;
-	padding-right: 10px;
-	#repsList {
-		.repPhoto {
-			display:none;
-		}
-		li {
-			display: block;
-			
-			a {
-				font-size: 1.2em;
-			}
-			.office {
-				font-size: 0.9em;
-				font-style: italic;
-			}
+	@extend .row;
+}
+
+#repsList {
+	@extend .col-xs-6;
+	@extend .col-md-4;
+	@extend .nav;
+	@extend .nav-pills;
+	@extend .nav-stacked;
+
+	.repPhoto {
+		display:none;
+	}
+	li {
+		//background-color: #ccc;
+		//display: block;
+		
+		// a {
+		// 	font-size: 1.2em;
+		// }
+		.office {
+			font-size: 0.9em;
+			font-style: italic;
 		}
 	}
 }
 
+
 #selectedRep {
-	float:left;
-	width: 600px;
+	@extend .col-xs-12;
+	@extend .col-md-8;
 	
 	#profile {
 		.repPhoto {
@@ -254,8 +186,12 @@ input, select {
 		padding-top: 15px;
 		padding-bottom: 15px;
 
+		.content {
+			@extend .list-group;
+		}
+
 		article {
-			padding-bottom: 10px;
+			@extend .list-group-item;
 		}
 
 		.title {

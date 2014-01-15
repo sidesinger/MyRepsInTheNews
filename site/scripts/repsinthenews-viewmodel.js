@@ -6,11 +6,12 @@
 			'ignore': ["api", "self"]
 		};
 		ko.mapping.fromJS(data, mapping, self);
-
+		self.isActive = ko.observable(false);
 		self.news = ko.observable(new RepsInTheNews.News());
 		self.getNewsMessage = ko.observable('');
 		self.isGettingNews = ko.observable(false);
 		self.getNews = function() {
+			self.getNewsMessage('');
 			if (self.news().feedUrl() === "") {
 				self.isGettingNews(true);
 				self.api.getNewsForRep(self.name(),self.division(),function(isSuccess,message,newsData){
@@ -58,6 +59,8 @@
 		self.getRepsMessage = ko.observable('');
 		self.reps = ko.observableArray();
 		self.getRepsByAddress = function() {
+			self.reps.removeAll();
+			self.getRepsMessage('');
 			self.isSearching(true);
 			self.api.getRepsByAddress(self.address(),function(isSuccess,message,data){
 				if (isSuccess === true) {
@@ -79,7 +82,11 @@
 		self.hasSelectedRep = ko.observable(false);
 		self.selectedRep = ko.observable({});
 		self.selectRep = function(rep) {
+			if (self.selectedRep().isActive !== undefined) {
+				self.selectedRep().isActive(false);
+			}
 			self.selectedRep(rep);
+			rep.isActive(true);
 			rep.getNews();
 			self.hasSelectedRep(true);
 		};
