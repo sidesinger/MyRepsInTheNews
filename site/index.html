@@ -68,7 +68,7 @@
 			<nav>
 				<ul>
 					<!-- ko foreach: $data.urls -->
-						<li><a data-bind="text: 'Rep Homepage', attr: { href: $data }" class="homepageLink"></a></li>
+						<li><a target="_blank" data-bind="text: 'Rep Homepage', attr: { href: $data }" class="homepageLink"></a></li>
 					<!-- /ko -->
 					<!-- ko foreach: $data.channels -->
 						<li data-bind="template: { name: type()+'RepLinkTemplate', data: id }"></li>
@@ -101,16 +101,16 @@
 	</script>
 
 	<script type="text/html" id="FacebookRepLinkTemplate">
-		<a class="facebookLink" data-bind="attr: { href:'https://www.facebook.com/'+$data, target: '_blank' }">Facebook</a>
+		<a target="_blank" class="facebookLink" data-bind="attr: { href:'https://www.facebook.com/'+$data }">Facebook</a>
 	</script>
 	<script type="text/html" id="GooglePlusRepLinkTemplate">
-		<a class="googlePlusLink" data-bind="attr: { href:'https://plus.google.com/'+$data, target: '_blank' }">Google+</a>
+		<a target="_blank" class="googlePlusLink" data-bind="attr: { href:'https://plus.google.com/'+$data  }">Google+</a>
 	</script>
 	<script type="text/html" id="TwitterRepLinkTemplate">
-		<a class="twitterLink" data-bind="attr: { href:'http://www.twitter.com/'+$data, target: '_blank' }">Twitter</a>
+		<a target="_blank" class="twitterLink" data-bind="attr: { href:'http://www.twitter.com/'+$data }">Twitter</a>
 	</script>
 	<script type="text/html" id="YouTubeRepLinkTemplate">
-		<a class="youtubeLink" data-bind="attr: { href:'http://www.youtube.com/user/'+$data, target: '_blank' }">YouTube</a>
+		<a target="_blank" class="youtubeLink" data-bind="attr: { href:'http://www.youtube.com/user/'+$data }">YouTube</a>
 	</script>			
 </body>
 </html>
