@@ -1,3 +1,5 @@
+@import "bootstrap.scss"; 
+
 $regFont: 'Open Sans', sans-serif;
 $headingFont: 'Open Sans', sans-serif;
 $datBlue: #1E87FF;
@@ -22,6 +24,7 @@ time, mark, audio, video {
     vertical-align:baseline;
     background:transparent;
 }
+
 
 body {
     line-height:1;
@@ -160,18 +163,31 @@ input, select {
 }
 
 #addressForm {
-	font-size: 1.4em;
-	label:after {
-		content: ": ";
+	@extend .input-group;
+	@extend .input-group-lg;
+
+	label:before {
+		@extend .glyphicon;
+		@extend .glyphicon-globe;
+		margin-right: 4px;
 	}
+	label {
+		@extend .input-group-addon;
+	}
+	label:after {
+		content: ': ';
+	}
+	
 	input {
-		font-family: $regFont;
-		font-size: 1em;
-		width: 590px;
+		@extend .form-control;
+		
+	}
+	.submitter {
+		@extend .input-group-btn;
 	}
 	button {
-		font-family: $headingFont;
-		font-size: 1em;
+		@extend .btn;
+		@extend .btn-default;
 	}
 }
 
