@@ -9,4 +9,8 @@
 		var viewModel = new RepsInTheNews.ViewModel(api);
 		RepsInTheNews.koModel = ko.applyBindings(viewModel);
 	};
+
+	RepsInTheNews.scrollWindow = function(location) {
+		$(window).scrollTop(location);
+	};
 }(jQuery, ko, window.RepsInTheNews = window.RepsInTheNews || {}));

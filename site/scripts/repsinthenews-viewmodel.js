@@ -45,7 +45,8 @@
 		var self = this;
 		self.link = ko.observable(data.link);
 		self.title = ko.observable(data.title);
-		self.publishedDate = ko.observable(data.publishedDate);
+		var pubDate = moment(data.publishedDate).format("ddd MMM D, YYYY h:mm A");
+		self.publishedDate = ko.observable(pubDate);
 		self.contentSnippet = ko.observable(data.contentSnippet);
 		self.content = ko.observable(data.contentSnippet);
 	};
@@ -60,6 +61,7 @@
 		self.reps = ko.observableArray();
 		self.getRepsByAddress = function() {
 			self.reps.removeAll();
+			self.hasSelectedRep(false);
 			self.getRepsMessage('');
 			self.isSearching(true);
 			self.api.getRepsByAddress(self.address(),function(isSuccess,message,data){
@@ -89,6 +91,7 @@
 			rep.isActive(true);
 			rep.getNews();
 			self.hasSelectedRep(true);
+			RepsInTheNews.scrollWindow(0);
 		};
 
 	}; 

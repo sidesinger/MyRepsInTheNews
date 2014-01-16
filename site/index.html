@@ -27,7 +27,7 @@
 
 	<article>
 		<div id="searching" data-bind="visible: isSearching">Searching...</div>
-		<div id="getRepsMessage" data-bind="text: getRepsMessage, visible: getRepsMessage.length > 0"></div>
+		<div id="getRepsMessage" data-bind="text: getRepsMessage, visible: getRepsMessage().length > 0"></div>
 		
 		<h2 data-bind="visible: reps().length > 0">Your Reps</h2>
 		
@@ -57,6 +57,7 @@
 	</footer>
 
 	<script type="text/html" id="selectedRepTemplate">
+		<section id="selectRepDetails">
 		<section id="profile">
 			<!-- ko if: $data.photoUrl -->
 				<div class="repPhoto">
@@ -66,17 +67,18 @@
 			<div class="name" data-bind="text: name"></div>
 			<div class="office" data-bind="text: office"></div>
 			<div class="division" data-bind="text: division"></div>
-			<nav>
-				<ul>
-					<!-- ko foreach: $data.urls -->
-						<li><a target="_blank" data-bind="text: 'Rep Homepage', attr: { href: $data }" class="homepageLink"></a></li>
-					<!-- /ko -->
-					<!-- ko foreach: $data.channels -->
-						<li data-bind="template: { name: type()+'RepLinkTemplate', data: id }"></li>
-					<!-- /ko -->
-				</ul>
-			</nav>
 		</section>
+		<nav id="links">
+			<ul>
+				<!-- ko foreach: $data.urls -->
+					<li><a target="_blank" data-bind="text: 'Rep Homepage', attr: { href: $data }" class="homepageLink"></a></li>
+				<!-- /ko -->
+				<!-- ko foreach: $data.channels -->
+					<li data-bind="template: { name: type()+'RepLinkTemplate', data: id }"></li>
+				<!-- /ko -->
+			</ul>
+		</nav>
+		</div>
 		<section id="news">
 			<div id="getNewsMessage" data-bind="text: getNewsMessage, visible: getNewsMessage.length > 0"></div>
 			<div id="gettingNews" data-bind="visible: isGettingNews">Getting the news for this rep...</div>
@@ -119,7 +121,7 @@
 	<script src="http://ajax.aspnetcdn.com/ajax/knockout/knockout-2.2.1.js"></script>
 	<script src="scripts/knockout.mapping.2.4.1.js"></script>
 	<script src="scripts/bootstrap.min.js"></script>
-
+	<script src="scripts/moment-min.js"></script>
 	<script src="scripts/repsinthenews-api.js"></script>
 	<script src="scripts/repsinthenews-viewmodel.js"></script>
 	<script src="scripts/repsinthenews-processing.js"></script>

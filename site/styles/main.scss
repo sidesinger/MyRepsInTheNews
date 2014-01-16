@@ -149,7 +149,13 @@ a:hover {
 	@extend .col-xs-12;
 	@extend .col-md-8;
 	
+	#selectedRepDetails {
+		@extend .row;
+	}
+
 	#profile {
+		@extend .col-xs-12;
+		@extend .col-md-8;
 		.repPhoto {
 			float:left;
 			margin-right: 10px;
@@ -167,19 +173,22 @@ a:hover {
 			padding: 4px 0;
 			font-style: italic;
 		}
-		nav {
-			li {
-				display:inline;
-				height: 36px;
-				width: 36px;
-				a {
-					@extend .iconLink;
-				}
-			}
-		}
+		
 	}
 	#profile:after {
-		clear:both;
+		//clear:both;
+	}
+	#links {
+			@extend .col-xs-6;
+	@extend .col-md-4;
+		li {
+			display:inline;
+			height: 36px;
+			width: 36px;
+			a {
+				@extend .iconLink;
+			}
+		}
 	}
 	#news {
 		clear:both;
@@ -198,6 +207,7 @@ a:hover {
 			font-size: 1.1em;
 		}
 		time {
+			display: block;
 			font-size: 0.8em;
 			font-style: italic;
 		}
@@ -216,10 +226,7 @@ a:hover {
 }
 
 .iconLink {
-	text-indent: 100%;
-	background-repeat: no-repeat;
-	white-space: nowrap;
-	overflow: hidden;
+	@extend .text-hide;
 	width: 36px;
 	height: 36px;
 	display: inline-block;

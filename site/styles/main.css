@@ -693,26 +693,28 @@ body:after {
 @media (min-width: 1200px) {
   .container, body {
     width: 1170px; } }
-.row, #results {
+.row, #results, #selectedRep #selectedRepDetails {
   margin-right: -15px;
   margin-left: -15px; }
 
-.row:before, #results:before,
+.row:before, #results:before, #selectedRep #selectedRepDetails:before,
 .row:after,
-#results:after {
+#results:after,
+#selectedRep #selectedRepDetails:after {
   display: table;
   content: " "; }
 
-.row:after, #results:after {
+.row:after, #results:after, #selectedRep #selectedRepDetails:after {
   clear: both; }
 
-.row:before, #results:before,
+.row:before, #results:before, #selectedRep #selectedRepDetails:before,
 .row:after,
-#results:after {
+#results:after,
+#selectedRep #selectedRepDetails:after {
   display: table;
   content: " "; }
 
-.row:after, #results:after {
+.row:after, #results:after, #selectedRep #selectedRepDetails:after {
   clear: both; }
 
 .col-xs-1,
@@ -731,6 +733,7 @@ body:after {
 .col-sm-4,
 .col-md-4,
 #repsList,
+#selectedRep #links,
 .col-lg-4,
 .col-xs-5,
 .col-sm-5,
@@ -738,6 +741,7 @@ body:after {
 .col-lg-5,
 .col-xs-6,
 #repsList,
+#selectedRep #links,
 .col-sm-6,
 .col-md-6,
 .col-lg-6,
@@ -749,6 +753,7 @@ body:after {
 .col-sm-8,
 .col-md-8,
 #selectedRep,
+#selectedRep #profile,
 .col-lg-8,
 .col-xs-9,
 .col-sm-9,
@@ -764,6 +769,7 @@ body:after {
 .col-lg-11,
 .col-xs-12,
 #selectedRep,
+#selectedRep #profile,
 .col-sm-12,
 .col-md-12,
 .col-lg-12 {
@@ -779,16 +785,18 @@ body:after {
 .col-xs-5,
 .col-xs-6,
 #repsList,
+#selectedRep #links,
 .col-xs-7,
 .col-xs-8,
 .col-xs-9,
 .col-xs-10,
 .col-xs-11,
 .col-xs-12,
-#selectedRep {
+#selectedRep,
+#selectedRep #profile {
   float: left; }
 
-.col-xs-12, #selectedRep {
+.col-xs-12, #selectedRep, #selectedRep #profile {
   width: 100%; }
 
 .col-xs-11 {
@@ -806,7 +814,7 @@ body:after {
 .col-xs-7 {
   width: 58.333333333333336%; }
 
-.col-xs-6, #repsList {
+.col-xs-6, #repsList, #selectedRep #links {
   width: 50%; }
 
 .col-xs-5 {
@@ -1114,11 +1122,13 @@ body:after {
   .col-md-3,
   .col-md-4,
   #repsList,
+  #selectedRep #links,
   .col-md-5,
   .col-md-6,
   .col-md-7,
   .col-md-8,
   #selectedRep,
+  #selectedRep #profile,
   .col-md-9,
   .col-md-10,
   .col-md-11,
@@ -1137,7 +1147,7 @@ body:after {
   .col-md-9 {
     width: 75%; }
 
-  .col-md-8, #selectedRep {
+  .col-md-8, #selectedRep, #selectedRep #profile {
     width: 66.66666666666666%; }
 
   .col-md-7 {
@@ -1149,7 +1159,7 @@ body:after {
   .col-md-5 {
     width: 41.66666666666667%; }
 
-  .col-md-4, #repsList {
+  .col-md-4, #repsList, #selectedRep #links {
     width: 33.33333333333333%; }
 
   .col-md-3 {
@@ -5637,7 +5647,7 @@ button.close {
 .invisible {
   visibility: hidden; }
 
-.text-hide {
+.text-hide, .iconLink, #selectedRep #links li a {
   font: 0/0 a;
   color: transparent;
   text-shadow: none;
@@ -6142,12 +6152,10 @@ a:hover {
 #selectedRep #profile .division {
   padding: 4px 0;
   font-style: italic; }
-#selectedRep #profile nav li {
+#selectedRep #links li {
   display: inline;
   height: 36px;
   width: 36px; }
-#selectedRep #profile:after {
-  clear: both; }
 #selectedRep #news {
   clear: both;
   padding-top: 15px;
@@ -6155,6 +6163,7 @@ a:hover {
   #selectedRep #news .title {
     font-size: 1.1em; }
   #selectedRep #news time {
+    display: block;
     font-size: 0.8em;
     font-style: italic; }
   #selectedRep #news .snippet {
@@ -6166,11 +6175,7 @@ a:hover {
   text-transform: uppercase;
   margin-top: 10px; }
 
-.iconLink, #selectedRep #profile nav li a {
-  text-indent: 100%;
-  background-repeat: no-repeat;
-  white-space: nowrap;
-  overflow: hidden;
+.iconLink, #selectedRep #links li a {
   width: 36px;
   height: 36px;
   display: inline-block; }
