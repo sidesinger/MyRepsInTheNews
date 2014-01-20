@@ -30,7 +30,7 @@
 		<div id="getRepsMessage" data-bind="text: getRepsMessage, visible: getRepsMessage().length > 0"></div>
 		
 		<h2 data-bind="visible: reps().length > 0">Your Reps</h2>
-		
+		<b data-bind="visible: reps().length > 0">Select a rep to view the news</b>
 		<div id="results">
 			<ul id="repsList" data-bind="foreach: reps">
 				<li data-bind="css: { active: isActive() }">
@@ -86,7 +86,7 @@
 			<footer>
 				News feed provided by Google News.<br>
 				Search terms used '<span data-bind="text: name"></span>','<span data-bind="text: division"></span>'.<br>
-				<a target="_blank" data-bind="attr: { href: news().feedUrl }">View this feed at Google News</a>
+				<a target="_blank" data-bind="attr: { href: $data.news.feedUrl }, text:'View this feed at Google News'"></a>
 			</footer>
 		</section>
 	</script>

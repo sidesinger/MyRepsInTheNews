@@ -13,4 +13,7 @@
 	RepsInTheNews.scrollWindow = function(location) {
 		$(window).scrollTop(location);
 	};
+	RepsInTheNews.scrollToElement = function(element) {
+		$('html,body').animate({scrollTop: element.offset().top});
+	};
 }(jQuery, ko, window.RepsInTheNews = window.RepsInTheNews || {}));

@@ -91,7 +91,7 @@
 			rep.isActive(true);
 			rep.getNews();
 			self.hasSelectedRep(true);
-			RepsInTheNews.scrollWindow(0);
+			RepsInTheNews.scrollToElement($("#selectedRep"));
 		};
 
 	}; 
