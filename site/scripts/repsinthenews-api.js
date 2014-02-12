@@ -31,15 +31,19 @@
 					var reps = [];
 					for(var nextDivisionProp in data.divisions) {
 						var division = data.divisions[nextDivisionProp];
-						$.each(division.officeIds, function(officeIndex, officeId) {
-							var office = data.offices[officeId];
-							$.each(office.officialIds, function(officalIndex, officialId) {
-								var official = data.officials[officialId];
-								official.office = office.name;
-								official.division = division.name;
-								reps.push(official);
+						if (division.officeIds !== undefined) {
+							$.each(division.officeIds, function(officeIndex, officeId) {
+								var office = data.offices[officeId];
+								if (office.officialIds !== undefined) {
+									$.each(office.officialIds, function(officalIndex, officialId) {
+										var official = data.officials[officialId];
+										official.office = office.name;
+										official.division = division.name;
+										reps.push(official);
+									});
+								}
 							});
-						});
+						}
 					}
 					return { 
 						isSuccess: true, 

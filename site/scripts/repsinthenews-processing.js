@@ -16,4 +16,10 @@
 	RepsInTheNews.scrollToElement = function(element) {
 		$('html,body').animate({scrollTop: element.offset().top});
 	};
+
+	$("#address").keypress(function(e) {
+        if(e.keyCode == 13) {
+            $("#addressButton").click();
+        }
+    });
 }(jQuery, ko, window.RepsInTheNews = window.RepsInTheNews || {}));
