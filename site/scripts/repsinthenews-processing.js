@@ -22,4 +22,5 @@
             $("#addressButton").click();
         }
     });
+
 }(jQuery, ko, window.RepsInTheNews = window.RepsInTheNews || {}));
